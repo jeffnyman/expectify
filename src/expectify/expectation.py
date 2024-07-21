@@ -16,7 +16,7 @@ class Expectation:
             raise AssertionError(self._failure_reason(matcher, reasons))
 
     def _match(self, matcher):
-        return getattr(matcher, "_match")(self._subject)
+        return matcher._match(self._subject)
 
     def _failure_reason(self, matcher, *args):
-        return getattr(matcher, "_failure_message")(self._subject, *args)
+        return matcher._failure_message(self._subject, *args)
