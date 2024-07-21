@@ -1,5 +1,5 @@
 from .expectation import Expectation
 
 
-def expect():
-    return Expectation
+def expect(subject):
+    return Expectation(subject)

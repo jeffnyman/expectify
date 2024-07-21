@@ -1,2 +1,3 @@
 class Expectation:
-    pass
+    def __init__(self, subject):
+        self._subject = subject
