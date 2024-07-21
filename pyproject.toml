@@ -18,3 +18,9 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/jeffnyman/expectify"
 Issues = "https://github.com/jeffnyman/expectify/issues"
+
+[tool.ruff]
+lint.ignore = [
+  # Class name should use CapWords convention
+  "N801",
+]
