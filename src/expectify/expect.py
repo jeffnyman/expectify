@@ -1,4 +1,4 @@
-from .expectation import Expectation
+from expectify.expectation import Expectation
 
 
 def expect(subject):

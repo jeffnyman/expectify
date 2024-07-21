@@ -1,4 +1,4 @@
-from .. import Matcher
+from expectify.matchers import Matcher
 
 
 class equal(Matcher):
