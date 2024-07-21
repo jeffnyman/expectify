@@ -1,8 +1,8 @@
 class Matcher:
-    def _match(self, subject):
+    def match(self, subject):
         raise NotImplementedError()
 
-    def _failure_message(self, subject, reasons):
+    def failure_message(self, subject, reasons):
         message = f"\nexpected: {subject!r} to {self!r}"
 
         if reasons:
