@@ -1,2 +1,3 @@
 class Matcher:
-    pass
+    def _match(self, subject):
+        raise NotImplementedError()
