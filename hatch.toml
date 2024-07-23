@@ -1,2 +1,2 @@
-[envs.default]
+[envs.test]
 dependencies = ["pytest"]
