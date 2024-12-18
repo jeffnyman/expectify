@@ -4,6 +4,6 @@
 # from expectify import expect
 # from expectify import *
 
-from expectify import expect
+from expectify import expect, equal
 
-expect("jeff").to("equal")
+expect("jeff").to(equal())
