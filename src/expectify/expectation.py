@@ -18,3 +18,5 @@ class Expectation:
 
     def _match(self, matcher) -> None:
         print(f"Attempting assert based on {matcher}")
+
+        return getattr(matcher, "_match")(self._subject)

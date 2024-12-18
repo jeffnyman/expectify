@@ -1,6 +1,10 @@
+from typing import Any, Never
 from .. import Matcher
 
 
 class equal(Matcher):
-    def __init__(self, expected) -> None:
-        self._expected = expected
+    def __init__(self, expected: str) -> None:
+        self._expected: str = expected
+
+    def _match(self, subject: str) -> tuple[Any, list[Never]]:
+        return subject == self._expected, []
