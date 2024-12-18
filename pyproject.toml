@@ -1,6 +1,6 @@
 [project]
 name = "expectify"
-version = "0.1.0"
+dynamic = ["version"]
 authors = [{ name = "Jeff Nyman", email = "jeffnyman@gmail.com" }]
 description = "Express expected outcomes for tests with expectations API."
 readme = "README.md"
@@ -21,6 +21,9 @@ dependencies = []
 [project.urls]
 Homepage = "https://github.com/jeffnyman/expectify"
 Issues = "https://github.com/jeffnyman/expectify/issues"
+
+[tool.hatch.version]
+path = "src/expectify/__about__.py"
 
 [build-system]
 requires = ["hatchling"]
