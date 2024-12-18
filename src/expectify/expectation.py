@@ -13,8 +13,8 @@ class Expectation:
 
         self._assert(matcher)
 
-    def _assert(self, matcher):
+    def _assert(self, matcher) -> None:
         self._match(matcher)
 
-    def _match(self, matcher):
+    def _match(self, matcher) -> None:
         print(f"Attempting assert based on {matcher}")
