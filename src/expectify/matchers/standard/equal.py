@@ -2,4 +2,5 @@ from .. import Matcher
 
 
 class equal(Matcher):
-    pass
+    def __init__(self, expected):
+        self._expected = expected
