@@ -6,4 +6,4 @@
 
 from expectify import expect
 
-expect("jeff")
+expect("jeff").to("equal")
