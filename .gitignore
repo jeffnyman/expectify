@@ -1,0 +1,20 @@
+# Project-specific
+.python-version
+
+# Python-generated
+__pycache__/
+*.py[cod]
+
+# Tool-generated
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Distribution / packaging
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv
