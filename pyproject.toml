@@ -22,9 +22,18 @@ dependencies = []
 Homepage = "https://github.com/jeffnyman/expectify"
 Issues = "https://github.com/jeffnyman/expectify/issues"
 
+[tool.taskipy.tasks]
+format = "uvx ruff format"
+lint = "uvx ruff check"
+typecheck = "uvx mypy src"
+check = "task format && task lint && task typecheck"
+
 [tool.hatch.version]
 path = "src/expectify/__about__.py"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["taskipy>=1.14.1"]
