@@ -13,10 +13,13 @@ class Expectation:
 
         self._assert(matcher)
 
-    def _assert(self, matcher) -> None:
-        self._match(matcher)
+    def _assert(self, matcher: "Matcher") -> None:
+        passed, reasons = self._match(matcher)
 
-    def _match(self, matcher) -> None:
+        if not passed:
+            raise AssertionError(f"Failed; {matcher} {reasons}")
+
+    def _match(self, matcher: "Matcher") -> tuple:
         print(f"Attempting assert based on {matcher}")
 
         return getattr(matcher, "_match")(self._subject)
