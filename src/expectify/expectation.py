@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 if TYPE_CHECKING:
     from .matchers import Matcher
@@ -7,11 +7,26 @@ if TYPE_CHECKING:
 class Expectation:
     def __init__(self, subject) -> None:
         self._subject = subject
+        self._negated: bool = False
 
     def to(self, matcher: "Matcher") -> None:
         __tracebackhide__ = True
 
         self._assert(matcher)
+
+    @property
+    def not_to(self) -> Callable[["Matcher"], None]:
+        __tracebackhide__ = True
+
+        self._negated = True
+
+        return self.to
+
+    @property
+    def to_not(self) -> Callable[["Matcher"], None]:
+        __tracebackhide__ = True
+
+        return self.not_to
 
     def _assert(self, matcher: "Matcher") -> None:
         __tracebackhide__ = True
@@ -22,7 +37,10 @@ class Expectation:
             raise AssertionError(self._failure_reason(matcher, reasons))
 
     def _match(self, matcher: "Matcher") -> tuple:
-        return getattr(matcher, "_match")(self._subject)
+        if self._negated:
+            return getattr(matcher, "_match_negated")(self._subject)
+        else:
+            return getattr(matcher, "_match")(self._subject)
 
     def _failure_reason(self, matcher: "Matcher", *reasons: list) -> tuple:
         return getattr(matcher, "_failure_message")(self._subject, *reasons)
