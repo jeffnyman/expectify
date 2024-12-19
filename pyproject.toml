@@ -22,6 +22,9 @@ dependencies = []
 Homepage = "https://github.com/jeffnyman/expectify"
 Issues = "https://github.com/jeffnyman/expectify/issues"
 
+[tool.ruff.lint]
+select = ["E", "F", "UP", "B", "SIM"]
+
 [tool.taskipy.tasks]
 test = "uv run pytest"
 format = "uvx ruff format"
