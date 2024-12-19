@@ -1,6 +1,6 @@
 import pytest
 
-from expectify import expect, equal, be_true
+from expectify import expect, equal, be_true, be_false
 
 
 def test_expect_equal_pass() -> None:
@@ -32,3 +32,13 @@ def test_expect_be_true_pass() -> None:
 def test_expect_be_true_fail() -> None:
     with pytest.raises(AssertionError):
         expect(True).not_to(be_true)
+
+
+def test_expect_be_false_pass() -> None:
+    expect(False).to(be_false)
+    expect(True).not_to(be_false)
+
+
+def test_expect_be_false_fail() -> None:
+    with pytest.raises(AssertionError):
+        expect(False).not_to(be_false)
