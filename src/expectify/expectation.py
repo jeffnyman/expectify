@@ -6,8 +6,8 @@ if TYPE_CHECKING:
 
 
 class Expectation:
-    def __init__(self, subject) -> None:
-        self._subject = subject
+    def __init__(self, subject: int | str) -> None:
+        self._subject: int | str = subject
         self._negated: bool = False
 
     def to(self, matcher: "Matcher") -> None:

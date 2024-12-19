@@ -2,15 +2,15 @@ from typing import Any, Never
 
 
 class Matcher:
-    def _match(self, subject: str) -> tuple[Any, list[Never]]:
+    def _match(self, subject: int | str) -> tuple[Any, list[Never]]:
         raise NotImplementedError()
 
-    def _match_negated(self, subject: str) -> tuple[Any, list[Never]]:
+    def _match_negated(self, subject: int | str) -> tuple[Any, list[Never]]:
         result, reason = self._match(subject)
 
         return not result, reason
 
-    def _failure_message(self, subject: str, reasons: list) -> str:
+    def _failure_message(self, subject: int | str, reasons: list) -> str:
         message = f"\nexpected: {subject} to {self}"
 
         if reasons:
@@ -19,7 +19,7 @@ class Matcher:
 
         return message
 
-    def _failure_message_negated(self, subject: str, reasons: list) -> str:
+    def _failure_message_negated(self, subject: int | str, reasons: list) -> str:
         message = f"\nexpected: {subject} not to {self}"
 
         if reasons:

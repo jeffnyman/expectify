@@ -2,7 +2,7 @@ from .. import Matcher
 
 
 class _be_true(Matcher):
-    def _match(self, subject: str):
+    def _match(self, subject: int | str):
         return subject is True, []
 
 
