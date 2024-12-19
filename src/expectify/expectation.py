@@ -9,9 +9,13 @@ class Expectation:
         self._subject = subject
 
     def to(self, matcher: "Matcher") -> None:
+        __tracebackhide__ = True
+
         self._assert(matcher)
 
     def _assert(self, matcher: "Matcher") -> None:
+        __tracebackhide__ = True
+
         passed, reasons = self._match(matcher)
 
         if not passed:
