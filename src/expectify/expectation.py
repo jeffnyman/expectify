@@ -43,4 +43,7 @@ class Expectation:
             return getattr(matcher, "_match")(self._subject)
 
     def _failure_reason(self, matcher: "Matcher", *reasons: list) -> tuple:
-        return getattr(matcher, "_failure_message")(self._subject, *reasons)
+        if self._negated:
+            return getattr(matcher, "_failure_message_negated")(self._subject, *reasons)
+        else:
+            return getattr(matcher, "_failure_message")(self._subject, *reasons)

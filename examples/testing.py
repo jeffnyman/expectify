@@ -7,3 +7,4 @@
 from expectify import expect, equal
 
 expect("jeff").to(equal("jeff"))
+expect("jeff").not_to(equal("geoff"))
