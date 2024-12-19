@@ -9,5 +9,5 @@ class equal(Matcher):
     def _match(self, subject: str) -> tuple[Any, list[Never]]:
         return subject == self._expected, []
 
-    def _match_negated(self, subject: str):
+    def _match_negated(self, subject: str) -> tuple[Any, list[Never]]:
         return subject != self._expected, []

@@ -5,6 +5,11 @@ class Matcher:
     def _match(self, subject: str) -> tuple[Any, list[Never]]:
         raise NotImplementedError()
 
+    def _match_negated(self, subject: str) -> tuple[Any, list[Never]]:
+        result, reason = self._match(subject)
+
+        return not result, reason
+
     def _failure_message(self, subject: str, reasons: list) -> str:
         message = f"\nexpected: {subject} to {self}"
 

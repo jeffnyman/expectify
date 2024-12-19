@@ -38,7 +38,7 @@ class Expectation:
 
     def _match(self, matcher: "Matcher") -> tuple:
         if self._negated:
-            return getattr(matcher, "_match_negated")(self._subject)
+            return matcher._match_negated(self._subject)
         else:
             return matcher._match(self._subject)
 
