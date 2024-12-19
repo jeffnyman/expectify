@@ -26,7 +26,7 @@ Issues = "https://github.com/jeffnyman/expectify/issues"
 test = "uv run pytest"
 format = "uvx ruff format"
 lint = "uvx ruff check"
-typecheck = "uvx mypy src tests"
+typecheck = "uvx mypy  --ignore-missing-imports src tests"
 check = "task format && task lint && task typecheck && task test"
 
 [tool.hatch.version]
