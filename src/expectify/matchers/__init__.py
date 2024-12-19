@@ -1,4 +1,10 @@
+from typing import Any, Never
+
+
 class Matcher:
+    def _match(self, subject: str) -> tuple[Any, list[Never]]:
+        raise NotImplementedError()
+
     def _failure_message(self, subject: str, reasons: list) -> str:
         message = f"\nexpected: {subject} to {self}"
 
