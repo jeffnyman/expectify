@@ -36,4 +36,4 @@ class Matcher:
 
     @property
     def _name(self) -> str:
-        return type(self).__name__
+        return type(self).__name__.replace("_", " ").strip()
